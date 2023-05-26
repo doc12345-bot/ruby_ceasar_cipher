@@ -18,5 +18,29 @@ def caesar_cipher(string, steps)
         split[index] = x.chr
     end
     result = split.join("")
-    puts result
+    p result
 end
+
+print "Enter string:"
+
+string = gets.chomp
+
+
+shift = nil
+#Loop repeats till valid integer is inputted
+
+loop do
+  print "Enter the shift factor for the cipher (an integer): "
+  shift = gets.chomp
+
+  #Checks if input is valid integer
+  #Converts to int then back to string. If the value is the same it's a valid int.
+  break if shift.to_i.to_s == shift
+
+  # break if Integer(shift, exception: false)
+  # Alt method, attempts to convert to Integer constructor.
+
+  puts "Invalid input. Please enter an integer."
+end
+
+caesar_cipher(string, shift.to_i)
